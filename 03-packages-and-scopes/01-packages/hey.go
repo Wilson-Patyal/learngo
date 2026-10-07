@@ -10,6 +10,8 @@ package main
 
 import "fmt"
 
+const static = 10
+
 func hey() {
 	fmt.Println("Hey!")
 }

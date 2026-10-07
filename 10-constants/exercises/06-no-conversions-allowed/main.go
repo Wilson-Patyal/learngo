@@ -19,9 +19,9 @@ package main
 // ---------------------------------------------------------
 
 func main() {
-	// const later int = 10
+	//const later int = 10
 
-	// hours, _ := time.ParseDuration("1h")
+	//hours, _ := time.ParseDuration("1h")
 
 	// fmt.Printf("%s later...\n", hours*later)
 }

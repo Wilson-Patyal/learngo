@@ -27,6 +27,8 @@ func main() {
 	//
 	// you need to convert one of them.
 	var m int64 = 2
+	fmt.Println(h)
+	fmt.Println(time.Duration(m))
 	h *= time.Duration(m)
 	fmt.Println(h)
 

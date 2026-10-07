@@ -12,7 +12,7 @@ import "fmt"
 
 func main() {
 	fmt.Println("Hello!")
-
+    fmt.Println(static)
 	// You can access functions from other files
 	// which are in the same package
 
@@ -20,7 +20,7 @@ func main() {
 
 	// It's because bye.go, hey.go and main.go
 	//   are in the main package.
-
+    
 	bye()
 	hey()
 }

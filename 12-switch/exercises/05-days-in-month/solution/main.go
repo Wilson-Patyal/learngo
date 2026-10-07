@@ -38,8 +38,8 @@ func main() {
 		}
 	default:
 		fmt.Printf("%q is not a month.\n", month)
-		return
+		return 
 	}
 
-	fmt.Printf("%q has %d days.\n", month, days)
+	fmt.Printf("%q has %d days.\n", year, month, days)
 }

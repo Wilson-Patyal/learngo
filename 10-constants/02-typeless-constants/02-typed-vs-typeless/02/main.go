@@ -16,7 +16,7 @@ func main() {
 	var f float64
 
 	// ERROR: Type Mismatch
-	// f = min // NOT OK
+	f = float64(min) // NOT OK
 
 	fmt.Println(f)
 }

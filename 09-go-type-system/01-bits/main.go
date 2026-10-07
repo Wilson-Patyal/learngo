@@ -46,7 +46,7 @@ func main() {
 	fmt.Printf("%08b = %d\n", 16, 16)
 	fmt.Printf("%08b = %d\n", 32, 32)
 	fmt.Printf("%08b = %d\n", 64, 64)
-	fmt.Printf("%08b = %d\n", 128, 128)
+	fmt.Printf("%08b = %v\n", 128, 128)
 
 	// ------------------------------------------------
 	// How to calculate bits?
