@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	"sync"
 	"time"
 )
@@ -26,6 +27,12 @@ var hunger = 3
 var eatTime = 1 * time.Second
 var thinkTime = 3 * time.Second
 var sleepTime = 1 * time.Second
+
+// To write the philosopher's eating order
+// var ph chan Philosopher
+
+var orderMutex sync.Mutex
+var orderFinished []string
 
 func diningProblem(philosopher Philosopher, wg *sync.WaitGroup, forks map[int]*sync.Mutex, seated *sync.WaitGroup) {
 	defer wg.Done()
@@ -67,8 +74,14 @@ func diningProblem(philosopher Philosopher, wg *sync.WaitGroup, forks map[int]*s
 
 	}
 
+	// ph <- philosopher
+
 	fmt.Println(philosopher.name, " is satisfied.")
 	fmt.Println(philosopher.name, " left the table")
+
+	orderMutex.Lock()
+	orderFinished = append(orderFinished, philosopher.name)
+	orderMutex.Unlock()
 }
 
 func dine() {
@@ -97,13 +110,29 @@ func dine() {
 }
 
 func main() {
+	//ph = make(chan Philosopher, len(philosophers))
 	// print out a welcome message
 	fmt.Println("Dining Philosophers Problem")
 	fmt.Println("---------------------------")
+	fmt.Println("The table is empty")
+
+    time.Sleep(sleepTime)
+
 	// start the meal
 	dine()
+    
+	// i := 1
+    // for p := range(ph){
+	// 	if i >= len(philosophers){
+	// 		close(ph)
+	// 	}
+	// 	i++
+	// 	fmt.Printf("%s finished the meal\n", p.name)
+	// }
 
 	// print out finished message
 	fmt.Println("The table is empty")
 
+	// order of eating
+	fmt.Printf("Order finished: %s.\n", strings.Join(orderFinished, ", "))
 }
